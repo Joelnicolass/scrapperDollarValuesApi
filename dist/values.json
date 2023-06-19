@@ -1,0 +1,10 @@
+[
+  { "title": "Dólar oficial", "Compra": "$246,00", "Venta": "$259,00" },
+  { "title": "Dólar blue", "Compra": "$487,00", "Venta": "$492,00" },
+  { "title": "Dólar tarjeta", "Venta": "$453,25" },
+  { "title": "Dólar turista", "Venta": "$518" },
+  { "title": "Dólar MEP", "Venta": "$476,56" },
+  { "title": "Dólar CCL", "Venta": "$491,21" },
+  { "title": "Dólar mayorista", "Venta": "$248,58" },
+  { "title": "Euro", "Compra": "$269,80", "Venta": "$284,22" }
+]
