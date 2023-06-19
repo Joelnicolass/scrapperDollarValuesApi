@@ -2,6 +2,10 @@ import { chromium } from "playwright";
 import { saveInJson } from "../../utils/files.utils";
 
 export const scrapDollarValuesInArg = async () => {
+  console.log(
+    "Iniciando scrapping de dolar en argentina: " + new Date().toLocaleString()
+  );
+
   const browser = await chromium.launch({
     headless: true,
     args: ["--disable-gpu", "--disable-gpu-sandbox", "--single-process"],

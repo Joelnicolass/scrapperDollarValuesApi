@@ -13,6 +13,7 @@ exports.scrapDollarValuesInArg = void 0;
 const playwright_1 = require("playwright");
 const files_utils_1 = require("../../utils/files.utils");
 const scrapDollarValuesInArg = () => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("Iniciando scrapping de dolar en argentina: " + new Date().toLocaleString());
     const browser = yield playwright_1.chromium.launch({
         headless: true,
         args: ["--disable-gpu", "--disable-gpu-sandbox", "--single-process"],
