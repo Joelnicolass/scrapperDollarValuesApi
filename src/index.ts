@@ -3,7 +3,7 @@ import cors from "cors";
 import routes from "./routes/app.routes";
 
 const app = express();
-const port = 80;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -11,4 +11,6 @@ app.use(cors());
 
 app.use("/api/v1", routes);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(Number(port), "0.0.0.0", function () {
+  console.log(`Server listening on port ${port}`);
+});
