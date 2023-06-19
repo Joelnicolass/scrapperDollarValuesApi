@@ -1,8 +1,9 @@
 import { Router } from "express";
-import DollarController from "../controllers/dollar.controller";
+import EconomyController from "../controllers/economy.controller";
 
 const router = Router();
 
-router.get("/dollar", DollarController.getDollar);
+router.get("/dollar", EconomyController.getDollar);
+router.get("/news/economy", EconomyController.newsEconomy);
 
 export default router;

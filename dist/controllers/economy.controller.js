@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-class DollarController {
+class EconomyController {
     static getDollar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("DollarController.getDollar");
@@ -28,7 +28,7 @@ class DollarController {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("DollarController.newsEconomy");
             try {
-                const values = require("../storage/infobae-economy.json");
+                const values = require("../storage/news-economy.json");
                 res.status(200).json(values);
             }
             catch (error) {
@@ -39,4 +39,4 @@ class DollarController {
         });
     }
 }
-exports.default = DollarController;
+exports.default = EconomyController;

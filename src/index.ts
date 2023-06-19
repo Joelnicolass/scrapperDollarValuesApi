@@ -1,8 +1,12 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import routes from "./routes/app.routes";
-import task from "./services/cron/cron.service";
 import { scrapDollarValuesInArg } from "./services/scrappers/dolar";
+import { scrapNewsEconomy } from "./services/scrappers/news-economy";
+import {
+  TASK_SCRAP_DOLLAR,
+  TASK_SCRAP_ECONOMY,
+} from "./services/cron/cron.service";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,8 +20,9 @@ app.use("/api/v1", routes);
 app.listen(Number(port), "0.0.0.0", function () {
   console.log(`Server running on port ${port}`);
 
-  // initial task
   scrapDollarValuesInArg();
+  scrapNewsEconomy();
 
-  task.start();
+  TASK_SCRAP_DOLLAR.start();
+  TASK_SCRAP_ECONOMY.start();
 });

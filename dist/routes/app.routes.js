@@ -4,7 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const dollar_controller_1 = __importDefault(require("../controllers/dollar.controller"));
+const economy_controller_1 = __importDefault(require("../controllers/economy.controller"));
 const router = (0, express_1.Router)();
-router.get("/dollar", dollar_controller_1.default.getDollar);
+router.get("/dollar", economy_controller_1.default.getDollar);
+router.get("/news/economy", economy_controller_1.default.newsEconomy);
 exports.default = router;
