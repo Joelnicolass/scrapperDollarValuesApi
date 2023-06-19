@@ -50,6 +50,8 @@ export const scrapDollarValuesInArg = async () => {
     return dollarValues;
   });
 
+  await browser.close();
+
   return data;
 };
 
