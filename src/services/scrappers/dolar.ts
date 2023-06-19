@@ -3,8 +3,9 @@ import { chromium } from "playwright";
 export const scrapDollarValuesInArg = async () => {
   const browser = await chromium.launch({
     headless: true,
-    args: ["--disable-gpu"],
+    args: ["--disable-gpu", "--disable-gpu-sandbox", "--single-process"],
   });
+
   const page = await browser.newPage();
 
   await page.goto("https://www.lanacion.com.ar/dolar-hoy", {
@@ -50,6 +51,7 @@ export const scrapDollarValuesInArg = async () => {
     return dollarValues;
   });
 
+  await page.close();
   await browser.close();
 
   return data;
