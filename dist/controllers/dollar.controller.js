@@ -13,11 +13,13 @@ const dolar_1 = require("../services/scrappers/dolar");
 class DollarController {
     static getDollar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log("DollarController.getDollar");
             try {
                 const values = yield (0, dolar_1.scrapDollarValuesInArg)();
                 res.status(200).json(values);
             }
             catch (error) {
+                console.log(error);
                 const err = new Error("Error in server");
                 res.status(500).json(err);
             }
