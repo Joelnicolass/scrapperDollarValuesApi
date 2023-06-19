@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "t": "tsc --watch",
-    "build": "tsc",
+    "build": "tsc && npx playwright install-deps",
     "dev": "nodemon ./dist/index.js",
     "start": "node ./dist/index.js"
   },
