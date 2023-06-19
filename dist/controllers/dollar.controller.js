@@ -9,13 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const dolar_1 = require("../services/scrappers/dolar");
 class DollarController {
     static getDollar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log("DollarController.getDollar");
             try {
-                const values = yield (0, dolar_1.scrapDollarValuesInArg)();
+                // import json
+                const values = require("../storage/dollar.json");
                 res.status(200).json(values);
             }
             catch (error) {

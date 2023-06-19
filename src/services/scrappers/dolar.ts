@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import { saveInJson } from "../../utils/files.utils";
 
 export const scrapDollarValuesInArg = async () => {
   const browser = await chromium.launch({
@@ -51,22 +52,10 @@ export const scrapDollarValuesInArg = async () => {
     return dollarValues;
   });
 
+  saveInJson(data, "dollar");
+
   await page.close();
   await browser.close();
 
   return data;
-};
-
-const main = async () => {
-  const data = await scrapDollarValuesInArg();
-  console.log(data);
-
-  const saveInJson = (data: any, name: string) => {
-    const fs = require("fs");
-    const path = require("path");
-    const filePath = path.join(__dirname, name + ".json");
-    fs.writeFileSync(filePath, JSON.stringify(data));
-  };
-
-  saveInJson(data, "values");
 };

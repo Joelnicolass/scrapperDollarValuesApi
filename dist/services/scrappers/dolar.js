@@ -11,8 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.scrapDollarValuesInArg = void 0;
 const playwright_1 = require("playwright");
+const files_utils_1 = require("../../utils/files.utils");
 const scrapDollarValuesInArg = () => __awaiter(void 0, void 0, void 0, function* () {
-    const browser = yield playwright_1.chromium.launch({ headless: true });
+    const browser = yield playwright_1.chromium.launch({
+        headless: true,
+        args: ["--disable-gpu", "--disable-gpu-sandbox", "--single-process"],
+    });
     const page = yield browser.newPage();
     yield page.goto("https://www.lanacion.com.ar/dolar-hoy", {
         timeout: 0,
@@ -41,17 +45,9 @@ const scrapDollarValuesInArg = () => __awaiter(void 0, void 0, void 0, function*
         });
         return dollarValues;
     });
+    (0, files_utils_1.saveInJson)(data, "dollar");
+    yield page.close();
+    yield browser.close();
     return data;
 });
 exports.scrapDollarValuesInArg = scrapDollarValuesInArg;
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield (0, exports.scrapDollarValuesInArg)();
-    console.log(data);
-    const saveInJson = (data, name) => {
-        const fs = require("fs");
-        const path = require("path");
-        const filePath = path.join(__dirname, name + ".json");
-        fs.writeFileSync(filePath, JSON.stringify(data));
-    };
-    saveInJson(data, "values");
-});

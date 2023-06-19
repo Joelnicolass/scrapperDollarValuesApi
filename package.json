@@ -6,7 +6,7 @@
   "scripts": {
     "t": "tsc --watch",
     "build": "tsc && npx playwright install-deps",
-    "dev": "nodemon ./dist/index.js",
+    "dev": "nodemon --ignore ./dist/storage ./dist/index.js",
     "start": "node ./dist/index.js"
   },
   "author": "",
@@ -16,11 +16,13 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.2",
     "playwright": "^1.35.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.35.1",
     "@types/cors": "^2.8.13",
+    "@types/node-cron": "^3.0.7",
     "nodemon": "^2.0.22",
     "typescript": "^5.1.3"
   }

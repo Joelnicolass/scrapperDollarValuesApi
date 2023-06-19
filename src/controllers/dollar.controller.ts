@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { scrapDollarValuesInArg } from "../services/scrappers/dolar";
 
 class DollarController {
   static async getDollar(req: Request, res: Response) {
     console.log("DollarController.getDollar");
 
     try {
-      const values = await scrapDollarValuesInArg();
+      // import json
+      const values = require("../storage/dollar.json");
       res.status(200).json(values);
     } catch (error) {
       console.log(error);
